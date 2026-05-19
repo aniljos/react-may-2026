@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.26.3/babel.js" integrity="sha512-zUYFpDCju9pzVcCS/NHRnaTcHlxn5EqoFljrpgJCIU2qG5NAl4+R+a5iZFiAq9ejM+D7D4Mp2Qqg3u0Y5bOKNA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <title>React</title>
+</head>
+<body>
+    <h2>React Application</h2>
+    <div id="app1"></div>
+    <div id="app2"></div>
+    <div id="app3"></div>
+    <div id="app4"></div>
+
+    <script type="text/babel">
+        //create an element: <div>Hello React</div>
+        const element1 = React.createElement("div", null, "Hello React");
+        //append the element to the div with id=app1
+        ReactDOM.createRoot(document.getElementById("app1")).render(element1);
+
+        //create an element: <div><h4>Hello World</h4></div>
+        const element2 = React.createElement("div", null, 
+                                React.createElement("h4", null, "Hello World"));
+        ReactDOM.createRoot(document.getElementById("app2")).render(element2);
+
+        //create an element: <div><h4>Hello JSX</h4></div>
+        ReactDOM.createRoot(document.getElementById("app3"))
+                            .render(<div><h4>Hello JSX</h4></div>);
+
+    </script>
+</body>
+</html>
