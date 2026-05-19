@@ -19,8 +19,11 @@ Add the Git repository URL for this application and related applications here.
 ### Documentation
 
 * React: https://react.dev/
-* Nextjs: https://nextjs.org/
 * React(Legacy): https://legacy.reactjs.org/
+* Vite: https://vite.dev/
+* Nextjs: https://nextjs.org/
+* Legacy -> Create React App(CRA): https://create-react-app.dev/ 
+
 
 ### Links
 * React CDN Links: https://legacy.reactjs.org/docs/cdn-links.html

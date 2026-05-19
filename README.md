@@ -8,8 +8,6 @@ Use this folder to organize:
 
 - React applications
 - Node.js backend applications
-- Express APIs
-- Fastify APIs
 - Practice projects and class work
 
 
