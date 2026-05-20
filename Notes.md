@@ -53,9 +53,21 @@ Add the Git repository URL for this application and related applications here.
   - props are passed to component like html attibutes
   - props are received as an object
   - To pass data from a parent(master) to a child(details) component or vice-versa
+  - props is read-only(in the child component)
+
+### Component State
+  - initernal to a component
+  - hook: useState hook
+  - state updates are asynchronous
+  - state updates are batched
+  - setState: 2 signatures
+      - setState(updateValue)
+      - setState(callbackFn),  callbackFn(currentValue): updatedValue
+
 
 ### Component Re-render
   - When props change the component re-render
+  - When state changes
 
 ## Quick References
 
