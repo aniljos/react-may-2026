@@ -68,6 +68,20 @@ Add the Git repository URL for this application and related applications here.
 ### Component Re-render
   - When props change the component re-render
   - When state changes
+  - When a parent component rerenders, all the child components will re-render
+  - forceUpdate(class components)
+
+### Form fields(input(text, password radio, checkbox), select, textarea)
+  - controlled input
+    - Reactive
+    - props on the input: value, onChange
+    - binding the input element to the state(useState) 
+  - uncontrolled input
+    - Non-reactive
+    - prop: ref
+    - handle to the input using the useRef hook.
+
+
 
 ## Quick References
 

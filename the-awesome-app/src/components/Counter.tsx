@@ -1,6 +1,6 @@
 // <Counter initCount={5} />
 
-import { useState, type ChangeEvent, type MouseEvent } from "react";
+import { useRef, useState, type ChangeEvent, type MouseEvent } from "react";
 
 type CounterProps = {
     initCount: number
@@ -9,6 +9,7 @@ type CounterProps = {
 function Counter(props: CounterProps){
 
     const [count, setCount] = useState(props.initCount);
+    const inputRef = useRef<HTMLInputElement>(null);
 
 
     function inc(evt: MouseEvent<HTMLButtonElement>){
@@ -27,6 +28,14 @@ function Counter(props: CounterProps){
         setCount(updateValue);
     }
 
+    function handleUpdate(){
+        const value = inputRef.current?.valueAsNumber;
+        if(value){
+            setCount(value);
+        }
+        
+    }
+
     return (
         <div>
             <h4>Counter: {count}</h4>
@@ -35,7 +44,12 @@ function Counter(props: CounterProps){
                 <button onClick={() => setCount(count -1)}>Decr</button>
             </div>
             <div>
+                {/* controlled */}
                 <input type="number" placeholder="Count" value={count} onChange={handleChange} />
+            </div>
+            <div>
+                <input ref={inputRef} type="number" placeholder="New Count" /> &nbsp;
+                <button onClick={handleUpdate}>Update Count</button>
             </div>
         </div>
     )
