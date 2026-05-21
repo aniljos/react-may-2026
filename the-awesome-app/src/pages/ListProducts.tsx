@@ -27,9 +27,32 @@ function ListProducts(){
 
     }, [])
 
-    function handleDelete(product: Product){
+    async function handleDelete(product: Product){
 
-        
+        try {
+            
+            const deleteUrl = url + "/" + product.id;            
+            await axios.delete(deleteUrl);
+           // await fetchProducts();
+            // const index = products.findIndex(p => p.id === product.id);
+            // if(index !== -1){
+            //     products.splice(index, 1);
+            // }
+
+            //copy of products
+            const copyOfProducts = [...products];
+            const index = copyOfProducts.findIndex(p => p.id === product.id);
+            if(index !== -1){
+                copyOfProducts.splice(index, 1);
+                setProducts(copyOfProducts);
+            }
+
+            alert("deleted product " + product.id);
+
+        } catch {
+
+            alert("deleted product " + product.id);
+        }
 
     }
    

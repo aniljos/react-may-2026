@@ -64,6 +64,9 @@ Add the Git repository URL for this application and related applications here.
   - setState: 2 signatures
       - setState(updateValue)
       - setState(callbackFn),  callbackFn(currentValue): updatedValue
+  - state must be treated as immutable
+      - state of type and object or an array
+      - To change state: create a copy, change the copy, set the copy to the state
 
 
 ### Component Re-render
@@ -100,6 +103,14 @@ Add the Git repository URL for this application and related applications here.
         - Cancel the API call
         - Websockets connection close
         - unregister to any window or document event
+
+## Assignment
+  - From ListProducts navigate to EditProduct of the click ofthe edit button
+  - In the Edit Product, desgn the UI form form modifying the product(name, description, price)
+  - Populate the form with the data
+    - Endpoint is Http GET: http://localhost:9000/products/:id
+  - Save button: on the click of the save button update change to the backend
+    - Endpoint is Http PUT: http://localhost:9000/products/:id
 
 ## Quick References
 
