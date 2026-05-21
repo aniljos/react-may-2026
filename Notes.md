@@ -82,7 +82,24 @@ Add the Git repository URL for this application and related applications here.
     - prop: ref
     - handle to the input using the useRef hook.
 
-
+### useEffect
+  - onMount
+    - useEffect(() => {}, []), the dependency array must be empty
+    - called once in the lifetime, mounted
+    - use cases
+        - DOM Initializations
+        - Http(API) calls on component loaded
+        - Websockets connections
+        - Register to any window or document event
+  - onUpdate
+    - useEffect(() => {}, [dep1]), the dependency array is non-empty
+    - called when the dependency changes
+  - onUnmount
+    - the callback(invoked on unmount) is returned from the useEffect for mount
+    - use cases
+        - Cancel the API call
+        - Websockets connection close
+        - unregister to any window or document event
 
 ## Quick References
 
