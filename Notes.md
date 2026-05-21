@@ -1,8 +1,8 @@
 # Notes
 
-## Introduction
- - https://forms.gle/cxPb6q9Ud9W1WgyV6
- Quiz #1: https://forms.gle/Pji6QDvPxDLtPiBx6
+## Forms(Introduction and Quiz)
+ - Intro: https://forms.gle/cxPb6q9Ud9W1WgyV6
+ - Quiz #1: https://forms.gle/Pji6QDvPxDLtPiBx6
  
 
 ## Git URLs
