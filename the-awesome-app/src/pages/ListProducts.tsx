@@ -2,12 +2,14 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import Product from '../models/Product';
 import './ListProducts.css'
+import { useNavigate } from 'react-router-dom';
 
 const url = "http://localhost:9000/products";
 
 function ListProducts(){
 
     const [products, setProducts] = useState<Product[]>([]);
+    const navigate = useNavigate();
 
     async function fetchProducts(){
 
@@ -55,6 +57,10 @@ function ListProducts(){
         }
 
     }
+
+    function handleEditProduct(product: Product){
+        navigate("/products/" + product.id);
+    }
    
 
     const mystyle = {display: 'flex', flexFlow: 'row wrap', justifyContent: 'center'}
@@ -70,7 +76,7 @@ function ListProducts(){
                         <p>Price: {product.price}</p>
                         <div>
                             <button className='btn btn-danger' onClick={() => {handleDelete(product)}}>Delete</button>&nbsp;
-                            <button className='btn btn-info'>Edit</button>
+                            <button className='btn btn-info' onClick={() => handleEditProduct(product)}>Edit</button>
                         </div>
                     </div>
                 ))}

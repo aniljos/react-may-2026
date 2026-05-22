@@ -105,12 +105,18 @@ Add the Git repository URL for this application and related applications here.
         - unregister to any window or document event
 
 ## Assignment
-  - From ListProducts navigate to EditProduct of the click ofthe edit button
+  - From ListProducts navigate to EditProduct of the click of the edit button
   - In the Edit Product, desgn the UI form form modifying the product(name, description, price)
   - Populate the form with the data
     - Endpoint is Http GET: http://localhost:9000/products/:id
   - Save button: on the click of the save button update change to the backend
     - Endpoint is Http PUT: http://localhost:9000/products/:id
+
+
+## Optimization
+  - Keep the components to be granular(small)
+    - promote easy maintaince, optimize, testing
+
 
 ## Quick References
 
