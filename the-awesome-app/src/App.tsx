@@ -3,6 +3,7 @@ import Home from './pages/Home';
 import Login from './pages/Login';
 import ListProducts from './pages/ListProducts';
 import EditProduct from './pages/EditProduct';
+import GadgetStore from './pages/GadgetStore';
 
 
 function App() {
@@ -25,6 +26,9 @@ function App() {
                   <li className="nav-item">
                     <Link className="nav-link" to="/products">Products</Link>
                   </li>
+                  <li className="nav-item">
+                    <Link className="nav-link" to="/gadgets">Gadgets</Link>
+                  </li>
                 </ul>
             </div>
           </nav>
@@ -35,6 +39,7 @@ function App() {
                 <Route path='/login' element={<Login/>}/>
                 <Route path='/products' element={<ListProducts/>}/>
                 <Route path='/products/:id' element={<EditProduct/>}/>
+                <Route path='/gadgets' element={<GadgetStore/>}/>
               </Routes>
           </main>
 

@@ -1,6 +1,8 @@
 import { useRef, useState, useEffect } from "react";
 import axios from 'axios';
 import {useNavigate} from 'react-router-dom';
+import { useDispatch } from "react-redux";
+import { useTitle } from "../hooks/useTitle";
 
 function Login(){
 
@@ -9,6 +11,10 @@ function Login(){
     const [errorMessage, setErrorMessage] = useState("");
     const usernameRef = useRef<HTMLInputElement>(null);
     const navigate = useNavigate();
+    const dispatch = useDispatch();
+    useTitle("Login");
+
+   
 
     //onMount
     useEffect(() => {
@@ -36,14 +42,17 @@ function Login(){
             //     .catch((errorResp) => { console.log("rejected", errorResp)}) //fails
 
             try {
-                const response = await axios.post(url, {name: username, password});
+                const response = await axios.post<{accessToken: string, refreshToken: string}>(url, {name: username, password});
                 console.log("fullfilled", response);
+                const {accessToken, refreshToken }= response.data;
+                dispatch({type: "login", payload: {isAuthenticated: true, username, accessToken, refreshToken}});
                 navigate("/products", {replace: true});
 
             } catch (errorResp) {
 
                 console.log("rejected", errorResp);
                 setErrorMessage("Invalid credentials");
+                dispatch({type: "logout"});
             }
             
         }

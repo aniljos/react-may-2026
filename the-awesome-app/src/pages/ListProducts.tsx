@@ -3,18 +3,28 @@ import { useEffect, useState } from 'react';
 import Product from '../models/Product';
 import './ListProducts.css'
 import { useNavigate } from 'react-router-dom';
+import {useSelector} from 'react-redux';
+import type { AppState } from '../store/store';
 
-const url = "http://localhost:9000/products";
+//const url = "http://localhost:9000/products";
+const url = "http://localhost:9000/secure_products";
 
 function ListProducts(){
 
     const [products, setProducts] = useState<Product[]>([]);
     const navigate = useNavigate();
+    const auth = useSelector((state: AppState) => state.auth);
 
     async function fetchProducts(){
 
         try {   
-            const response = await axios.get<Product[]>(url);
+
+            if(!auth.isAuthenticated){
+                navigate("/login");
+                return;
+            }
+            const headers = {"Authorization": `Bearer ${auth.accessToken}`};
+            const response = await axios.get<Product[]>(url, {headers});
             console.log("response", response.data);
             setProducts(response.data);
             
@@ -33,8 +43,9 @@ function ListProducts(){
 
         try {
             
-            const deleteUrl = url + "/" + product.id;            
-            await axios.delete(deleteUrl);
+            const deleteUrl = url + "/" + product.id;    
+            const headers = {"Authorization": `Bearer ${auth.accessToken}`};        
+            await axios.delete(deleteUrl, {headers});
            // await fetchProducts();
             // const index = products.findIndex(p => p.id === product.id);
             // if(index !== -1){

@@ -104,18 +104,15 @@ Add the Git repository URL for this application and related applications here.
         - Websockets connection close
         - unregister to any window or document event
 
-## Assignment
-  - From ListProducts navigate to EditProduct of the click of the edit button
-  - In the Edit Product, desgn the UI form form modifying the product(name, description, price)
-  - Populate the form with the data
-    - Endpoint is Http GET: http://localhost:9000/products/:id
-  - Save button: on the click of the save button update change to the backend
-    - Endpoint is Http PUT: http://localhost:9000/products/:id
 
 
-## Optimization
+
+## Optimization & Design
   - Keep the components to be granular(small)
     - promote easy maintaince, optimize, testing
+  - reuse functionalties in a functional component
+    - challenge: most functionaties invokes the usage of hooks
+    - custom hooks
 
 ## State Management( Sharing  Data)
   - LocalStorage & SessionStorage
@@ -131,14 +128,39 @@ Add the Git repository URL for this application and related applications here.
     - must be treated as immutable
   - store:
       - keeps the data
+      - one per application
   - reducer
       - is a function
       - receive an action, process the actions and updates the store
+      - one reducer per store, however we can create multiple reducers and combine to a single reducer
   - action 
       - is an object with type property and any other properties
       - The type this defines what we intend to do
+  - react-redux
+      - Provider component: integrate the redux store with react application
+      - hooks
+          - useDispatch: return a dispatch function which can be used for dispatching an action
+          - useSelector: select data from the store(inherintly subscribes to the store)
+          - useStore: retuns the handle to the store
 
 
+## Assignment #1
+  - From ListProducts navigate to EditProduct of the click of the edit button
+  - In the Edit Product, desgn the UI form form modifying the product(name, description, price)
+  - Populate the form with the data
+    - Endpoint is Http GET: http://localhost:9000/products/:id
+  - Save button: on the click of the save button update change to the backend
+    - Endpoint is Http PUT: http://localhost:9000/products/:id
+
+## Assignment #2 
+  - Search application(page)
+    -Wiki search endpoint: https://en.wikipedia.org/w/api.php?action=opensearch&origin=*&limit=20&search=react
+    Search Interface: 1. input field(search) 2.drop-down(limit:5,10,20,30) 4.Search results: text and link
+
+## Assignment #3
+  - Customers page : Master and detail
+    - Display all customers in an HTML table, the customer name as a link
+    - Details of the customer on a new route
 
 ## Quick References
 
