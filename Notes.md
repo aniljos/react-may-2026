@@ -117,6 +117,28 @@ Add the Git repository URL for this application and related applications here.
   - Keep the components to be granular(small)
     - promote easy maintaince, optimize, testing
 
+## State Management( Sharing  Data)
+  - LocalStorage & SessionStorage
+  - Cookies(Http)
+  - Memory (State Management Libraries)
+    - Redux
+    - React Context
+    - MobX
+    - Zustand
+
+## Redux
+  - state
+    - must be treated as immutable
+  - store:
+      - keeps the data
+  - reducer
+      - is a function
+      - receive an action, process the actions and updates the store
+  - action 
+      - is an object with type property and any other properties
+      - The type this defines what we intend to do
+
+
 
 ## Quick References
 
