@@ -3,6 +3,7 @@
 ## Forms(Introduction and Quiz)
  - Intro: https://forms.gle/cxPb6q9Ud9W1WgyV6
  - Quiz #1: https://forms.gle/Pji6QDvPxDLtPiBx6
+ - Quiz #2: https://forms.gle/CwGVHhhHF4JR887d7
  
 
 ## Git URLs
@@ -161,6 +162,10 @@ Add the Git repository URL for this application and related applications here.
   - Customers page : Master and detail
     - Display all customers in an HTML table, the customer name as a link
     - Details of the customer on a new route
+
+## Assignment #4
+  - Generic Custom Hook for fetching the data(products, orders, customers)
+  - useData<T>(url, isSecure)
 
 ## Quick References
 

@@ -10,19 +10,22 @@ function Counter(props: CounterProps){
 
     const [count, setCount] = useState(props.initCount);
     const inputRef = useRef<HTMLInputElement>(null);
+    const noOfIncrements = useRef(0);
 
     useEffect(() => {
         console.log("count updated", count);
     }, [count])
 
     function inc(evt: MouseEvent<HTMLButtonElement>){
-        console.log("inc invoked...", evt);
+        //console.log("inc invoked...", evt);
         //props.initCount++; // props is read-only
         //setCount(count + 1);
         //setCount(count + 1);
 
         setCount(count => count + 1);
         //setCount(count => count + 1);
+        noOfIncrements.current++;
+        console.log("noOfIncrements", noOfIncrements);
         
     }
 
