@@ -4,6 +4,8 @@ import Login from './pages/Login';
 import ListProducts from './pages/ListProducts';
 import EditProduct from './pages/EditProduct';
 import GadgetStore from './pages/GadgetStore';
+import ViewCart from './pages/ViewCart';
+import AppBar from './components/AppBar';
 
 
 function App() {
@@ -13,25 +15,7 @@ function App() {
     <Router>
       <div className="container-fluid">
             {/* navigation bar */}
-          <nav className="navbar navbar-dark bg-dark">
-            <div className="container-fluid">
-                <Link className="navbar-brand" to="/">Vite React</Link>
-                <ul className="nav">
-                  <li className="nav-item">
-                    <Link className="nav-link" to="/">Home</Link>
-                  </li>
-                  <li className="nav-item">
-                    <Link className="nav-link" to="/login">Login</Link>
-                  </li>
-                  <li className="nav-item">
-                    <Link className="nav-link" to="/products">Products</Link>
-                  </li>
-                  <li className="nav-item">
-                    <Link className="nav-link" to="/gadgets">Gadgets</Link>
-                  </li>
-                </ul>
-            </div>
-          </nav>
+            <AppBar/>
             {/* main content(pages) */}
           <main>
               <Routes>
@@ -40,6 +24,7 @@ function App() {
                 <Route path='/products' element={<ListProducts/>}/>
                 <Route path='/products/:id' element={<EditProduct/>}/>
                 <Route path='/gadgets' element={<GadgetStore/>}/>
+                <Route path='/viewcart' element={<ViewCart/>}/>
               </Routes>
           </main>
 

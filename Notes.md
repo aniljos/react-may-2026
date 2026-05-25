@@ -134,15 +134,35 @@ Add the Git repository URL for this application and related applications here.
       - is a function
       - receive an action, process the actions and updates the store
       - one reducer per store, however we can create multiple reducers and combine to a single reducer
+      - must be synchronous
   - action 
       - is an object with type property and any other properties
       - The type this defines what we intend to do
+  -middleware
+      - intercepts the action before processes by the reducer
+      - Any pre-processing task
+      - logging, async operations
   - react-redux
       - Provider component: integrate the redux store with react application
       - hooks
           - useDispatch: return a dispatch function which can be used for dispatching an action
           - useSelector: select data from the store(inherintly subscribes to the store)
           - useStore: retuns the handle to the store
+  - @redux/toolkit
+      - slice: 
+        - slice of the data managed by redux
+        - replace the reducer( we create a slice rrather than a reducer)
+        - treat state as mutable in the slice
+        - generates the reducer
+        - generates the action creators
+          - action creator(design pattern): A helper function to an action
+
+  - React context vs Redux
+      - React Context: low-level api
+          - bare minimum for state management
+          - We develop a library around context
+      - Redux: high level api
+          - opinionted, 
 
 
 ## Assignment #1

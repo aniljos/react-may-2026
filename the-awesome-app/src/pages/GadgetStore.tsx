@@ -1,5 +1,8 @@
+import { useDispatch } from "react-redux";
 import { useProducts } from "../hooks/useProducts";
 import { useTitle } from "../hooks/useTitle";
+import type Product from "../models/Product";
+import {addToCart as createAddToCartAction} from '../store/gadgetsReducer';
 
 const url = "http://localhost:9000/products";
 
@@ -7,6 +10,14 @@ function GadgetStore(){
 
     useTitle("Gadgets");
     const {products} = useProducts(url);
+    const dispatch = useDispatch();
+   
+    function addToCart(product: Product){
+
+        const action = createAddToCartAction({product, quantity: 1});
+        dispatch(action);
+
+    }
 
     function renderProducts() {
 
