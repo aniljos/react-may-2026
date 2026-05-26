@@ -182,6 +182,7 @@ Add the Git repository URL for this application and related applications here.
   - Customers page : Master and detail
     - Display all customers in an HTML table, the customer name as a link
     - Details of the customer on a new route
+    - urls: http://localhost:9000/customers, http://localhost:9000/customers/:id
 
 ## Assignment #4
   - Generic Custom Hook for fetching the data(products, orders, customers)
