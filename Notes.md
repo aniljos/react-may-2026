@@ -56,6 +56,8 @@ Add the Git repository URL for this application and related applications here.
   - props are received as an object
   - To pass data from a parent(master) to a child(details) component or vice-versa
   - props is read-only(in the child component)
+  - <Message text="hello"/>  ==> props.text
+  - <Message text="hello"> <Counter/> </Message>  => props.children
 
 ### Component State
   - initernal to a component
@@ -110,7 +112,7 @@ Add the Git repository URL for this application and related applications here.
 
 ## Optimization & Design
   - Keep the components to be granular(small)
-    - promote easy maintaince, optimize, testing
+    - promote easy maintaince, optimize, unit testing
   - reuse functionalties in a functional component
     - challenge: most functionaties invokes the usage of hooks
     - custom hooks
@@ -161,10 +163,21 @@ Add the Git repository URL for this application and related applications here.
       - React Context: low-level api
           - bare minimum for state management
           - We develop a library around context
+          - Multiple Contexts
+              - Forms Validation
       - Redux: high level api
           - opinionted, 
+          - Single store, one reducer(split reducers)
+  
+  - useReducer vs useState
+      - Both are for managing state within a component
+      - Both cases state changes will re-render the component
+      - useState: used when state is simple, state changes are not complex
+      - useReducer: used whe state and state complex are complex 
 
-
+  - React Compiler
+    - Introduced in React 19
+    - Optimizes the application
 ## Assignment #1
   - From ListProducts navigate to EditProduct of the click of the edit button
   - In the Edit Product, desgn the UI form form modifying the product(name, description, price)
@@ -187,6 +200,11 @@ Add the Git repository URL for this application and related applications here.
 ## Assignment #4
   - Generic Custom Hook for fetching the data(products, orders, customers)
   - useData<T>(url, isSecure)
+
+## Assignment #5
+  - Breadcrumps using ReactContext
+  - Apply to all the pages: CustomHook
+  - Optional: implement state management using useReducer hook
 
 ## Quick References
 
