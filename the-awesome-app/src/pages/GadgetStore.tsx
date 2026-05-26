@@ -4,7 +4,7 @@ import { useTitle } from "../hooks/useTitle";
 import type Product from "../models/Product";
 import {addToCart as createAddToCartAction} from '../store/gadgetsReducer';
 
-const url = "http://localhost:9000/products";
+const url = "/secure_products";
 
 function GadgetStore(){
 

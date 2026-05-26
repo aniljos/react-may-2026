@@ -7,7 +7,7 @@ import { store } from "./store/store.ts";
 import { AppThemeProvider } from "./context/AppThemeContext.tsx";
 
 createRoot(document.getElementById("root")!).render(
-  // <StrictMode>
+  <StrictMode>
     <Provider store={store}>
       {/* <AppThemeContext.Provider value={{mode: "dark"}}> */}
         <AppThemeProvider>
@@ -15,5 +15,5 @@ createRoot(document.getElementById("root")!).render(
         </AppThemeProvider>
       {/* </AppThemeContext.Provider> */}
     </Provider>
-  // </StrictMode>,
+   </StrictMode>,
 );

@@ -5,27 +5,29 @@ import { useNavigate } from "react-router-dom";
 import { useProducts } from "../hooks/useProducts";
 import { useSelector } from "react-redux";
 import type { AppState } from "../store/store";
-import { useContext, useState } from "react";
+import { useCallback, useContext, useMemo, useState } from "react";
 import { AppThemeContext } from "../context/AppThemeContext";
 import ProductView from "../components/ProductView";
+import { Axios } from "../axios/Axios";
 
 
-//const url = "http://localhost:9000/products";
-const url = "http://localhost:9000/secure_products";
+//const url = "/products";
+const url = "/secure_products";
 
 function ListProducts() {
 
   const navigate = useNavigate();
   const { products, setProducts } = useProducts(url);
-  const auth = useSelector((state: AppState) => state.auth);
+  //const auth = useSelector((state: AppState) => state.auth);
   const themeContext = useContext(AppThemeContext);
   const [isMessageVisible, setMessageVisible] = useState(true);
 
-  async function handleDelete(product: Product) {
+
+   const handleDelete = useCallback( async (product: Product) => {
     try {
       const deleteUrl = url + "/" + product.id;
-      const headers = { Authorization: `Bearer ${auth.accessToken}` };
-      await axios.delete(deleteUrl, { headers });
+      //const headers = { Authorization: `Bearer ${auth.accessToken}` };
+      await Axios.delete(deleteUrl);
       // await fetchProducts();
      
       
@@ -46,23 +48,39 @@ function ListProducts() {
     } catch {
       alert("deleted product " + product.id);
     }
-  }
+  }, [products])
 
-  function handleEditProduct(product: Product) {
+  const handleEditProduct =useCallback( (product: Product) => {
     navigate("/products/" + product.id);
-  }
+  }, [])
+
+
+  const totalPrice = useMemo(() => {
+
+    console.log("calculating the total price...");
+    let totalPrice = 0;
+    products.forEach(p => {
+      if(p.price)
+        totalPrice += p.price;
+    })
+
+    return totalPrice;
+
+  }, [products])
 
   const mystyle = {
     display: "flex",
     flexFlow: "row wrap",
     justifyContent: "center",
-    backgroundColor: themeContext.mode === 'light'  ? 'lightblue' : 'gray'
+    backgroundColor: themeContext.mode === 'light'  ? 'lightblue' : 'lightgray'
   };
   return (
     <div>
       <h4>List Products</h4>
+      <div className="alert alert-primary">Total Price: {totalPrice}</div>
       {isMessageVisible &&  <div className="alert alert-info">This is an example on data fetching using axios</div>}
       <button className="btn btn-info" onClick={() => setMessageVisible(!isMessageVisible)}>{isMessageVisible ? 'Hide ' : 'Show '} Info</button>
+
 
       <div style={mystyle}>
         {products.map((product) => (

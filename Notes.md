@@ -116,6 +116,10 @@ Add the Git repository URL for this application and related applications here.
   - reuse functionalties in a functional component
     - challenge: most functionaties invokes the usage of hooks
     - custom hooks
+  - Optimize components
+    - memo(React.memo) : memoize a component
+    - useCallback: hook to memoize a callback, 
+    - useMemo: hook to memoize a value
 
 ## State Management( Sharing  Data)
   - LocalStorage & SessionStorage
@@ -178,6 +182,13 @@ Add the Git repository URL for this application and related applications here.
   - React Compiler
     - Introduced in React 19
     - Optimizes the application
+
+- axios
+    - axios is a global object
+    - Create an axios object(custom) with all the configurations
+      - use this object in the application
+
+
 ## Assignment #1
   - From ListProducts navigate to EditProduct of the click of the edit button
   - In the Edit Product, desgn the UI form form modifying the product(name, description, price)
@@ -205,6 +216,16 @@ Add the Git repository URL for this application and related applications here.
   - Breadcrumps using ReactContext
   - Apply to all the pages: CustomHook
   - Optional: implement state management using useReducer hook
+
+## Assignment #6
+  - Axios response interceptor
+        - Check if the response status is success(200) - proceed ahead
+        - Check if the response status is error forbidden(403)
+            - Fetch a new accessToken using refreshToken(POST http://localhost:9000/refreshToken) {"token": "refreshToke"}
+            - If we get the accessToken we retry the request with the new accessToken
+            - If we cannot fetch the accessToken then return the error status(403)
+
+
 
 ## Quick References
 

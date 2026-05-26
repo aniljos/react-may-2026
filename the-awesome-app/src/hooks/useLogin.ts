@@ -1,8 +1,8 @@
 import { useRef, useState, useEffect } from "react";
-import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { useTitle } from "../hooks/useTitle";
+import { Axios } from "../axios/Axios";
 
 export function useLogin() {
   const [username, setUsername] = useState("");
@@ -28,17 +28,21 @@ export function useLogin() {
     if (username && password) {
       setErrorMessage("");
       //validate the credentials in the backend
-      const url = "http://localhost:9000/login";
+      //const url = "http://localhost:9000/login";
       // axios
       //     .post(url, {name: username, password})
       //     .then((resp) => { console.log("fullfilled", resp)}) //success
       //     .catch((errorResp) => { console.log("rejected", errorResp)}) //fails
 
       try {
-        const response = await axios.post<{
-          accessToken: string;
-          refreshToken: string;
-        }>(url, { name: username, password });
+        // const response = await axios.post<{
+        //   accessToken: string;
+        //   refreshToken: string;
+        // }>(url, { name: username, password });
+
+        const response = await Axios.post<{accessToken:string, refreshToken: string}>("/login", {name: username, password})
+
+
         console.log("fullfilled", response);
         const { accessToken, refreshToken } = response.data;
         dispatch({
