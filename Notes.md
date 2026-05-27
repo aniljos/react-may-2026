@@ -4,6 +4,7 @@
  - Intro: https://forms.gle/cxPb6q9Ud9W1WgyV6
  - Quiz #1: https://forms.gle/Pji6QDvPxDLtPiBx6
  - Quiz #2: https://forms.gle/CwGVHhhHF4JR887d7
+ - Quiz #3: https://forms.gle/VAiBE8qLubzmkeji6
  
 
 ## Git URLs
