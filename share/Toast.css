@@ -1,0 +1,48 @@
+.app-toast {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    z-index: 1080;
+    min-width: 290px;
+    max-width: 370px;
+    padding: 1.2rem 1.2rem 1rem;
+    border-radius: 0.85rem;
+    background: #1f2937;
+    color: #f9fafb;
+    box-shadow: 0 18px 45px rgba(15, 23, 42, 0.28);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.app-toast__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    margin-bottom: 0.5rem;
+}
+
+.app-toast__title {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.app-toast__text {
+    margin: 0;
+    color: #d1d5db;
+    line-height: 1.4;
+}
+
+.app-toast__dismiss {
+    border: 0;
+    background: transparent;
+    color: #fbbf24;
+    font-size: 0.875rem;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 0;
+}
+
+.app-toast__dismiss:hover {
+    color: #fde68a;
+}
