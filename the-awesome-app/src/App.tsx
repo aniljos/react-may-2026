@@ -6,6 +6,7 @@ import EditProduct from './pages/EditProduct';
 import GadgetStore from './pages/GadgetStore';
 import ViewCart from './pages/ViewCart';
 import AppBar from './components/AppBar';
+import Users from './pages/Users';
 
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
                 <Route path='/products/:id' element={<EditProduct/>}/>
                 <Route path='/gadgets' element={<GadgetStore/>}/>
                 <Route path='/viewcart' element={<ViewCart/>}/>
+                <Route path='/users' element={<Users/>}/>
               </Routes>
           </main>
 

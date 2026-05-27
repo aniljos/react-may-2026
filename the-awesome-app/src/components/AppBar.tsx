@@ -33,6 +33,9 @@ function AppBar(){
                   <li className="nav-item">
                     <Link className="nav-link" to="/viewcart">View Cart</Link>
                   </li>
+                  <li className="nav-item">
+                    <Link className="nav-link" to="/users">Users</Link>
+                  </li>
                    <li className="nav-item">
                     <button className="btn btn-warning" onClick={switchTheme}>Switch Theme</button>
                   </li>
