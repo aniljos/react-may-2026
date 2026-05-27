@@ -3,6 +3,8 @@ import { useProducts } from "../hooks/useProducts";
 import { useTitle } from "../hooks/useTitle";
 import type Product from "../models/Product";
 import {addToCart as createAddToCartAction} from '../store/gadgetsReducer';
+import Toast, { type ToastHandle } from "../components/Toast";
+import { useRef } from "react";
 
 const url = "/secure_products";
 
@@ -11,11 +13,14 @@ function GadgetStore(){
     useTitle("Gadgets");
     const {products} = useProducts(url);
     const dispatch = useDispatch();
+    const toastRef = useRef<ToastHandle>(null);
    
     function addToCart(product: Product){
 
         const action = createAddToCartAction({product, quantity: 1});
         dispatch(action);
+        console.log("toastRef", toastRef.current);
+        toastRef.current?.show({title: "Success", text: `The product: ${product.name} added to the cart`})
 
     }
 
@@ -52,6 +57,7 @@ function GadgetStore(){
             <div>
                 {renderProducts()}
             </div>
+            <Toast ref={toastRef}/>
         </div>
     )
 }

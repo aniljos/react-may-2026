@@ -12,14 +12,14 @@ function Users(){
 
         async function fetchUsers(){
 
-            const url = "https://randomuser.me/api/?results=2000";
+            const url = "https://randomuser.me/api/?results=4000";
             const response = await fetch(url, {method: "GET"});
             const data = await response.json();
             console.log("data", data);
             const _users = data.results.map((result: any, index: number) => ({
                 
                 id: index,
-                name: `${result.name.title} ${result.name.first} ${result.name.first}`,
+                name: `${result.name.title} ${result.name.first} ${result.name.last}`,
                 email: result.email,
                 phone: result.phone,
                 city: result.location.city

@@ -189,6 +189,13 @@ Add the Git repository URL for this application and related applications here.
     - Create an axios object(custom) with all the configurations
       - use this object in the application
 
+- axios vs fetch
+    - axios is based XMLHttpRequest(W3C)
+    - fetch(W3C) is more modern
+    - axios: high level api: cancel, intercept, transfroms
+    - fetch is low-level
+
+
 
 ## Assignment #1
   - From ListProducts navigate to EditProduct of the click of the edit button
