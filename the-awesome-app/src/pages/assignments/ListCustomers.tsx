@@ -87,7 +87,7 @@ function ListCustomers() {
                                                 <td>
                                                     {customer.id !== undefined ? (
                                                         <Link
-                                                            to={`/customers/${customer.id}`}
+                                                            to={`${customer.id}`}
                                                             className="text-decoration-none fw-semibold"
                                                         >
                                                             {customer.name ?? "Unknown Customer"}

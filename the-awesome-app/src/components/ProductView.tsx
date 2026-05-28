@@ -15,7 +15,7 @@ type ProductViewProps = {
 //     </>
 // }
 
-const ProductView: React.FC<ProductViewProps>  = memo( function ProductView({product, onDelete, onEdit}) {
+const ProductView: React.FC<ProductViewProps>  =  function ProductView({product, onDelete, onEdit}) {
 
     console.log("prodictview rendering", product.id);
 
@@ -46,7 +46,7 @@ const ProductView: React.FC<ProductViewProps>  = memo( function ProductView({pro
             </div>
           </div>
     )
-})
+}
 
 
 

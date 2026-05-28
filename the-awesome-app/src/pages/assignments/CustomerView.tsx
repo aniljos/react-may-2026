@@ -58,7 +58,7 @@ function CustomerView() {
                                         Details loaded from the customer detail endpoint.
                                     </p>
                                 </div>
-                                <Link to="/customers" className="btn btn-outline-secondary">
+                                <Link to="/assignments/customers" className="btn btn-outline-secondary">
                                     Back to Customers
                                 </Link>
                             </div>

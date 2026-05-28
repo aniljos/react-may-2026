@@ -1,5 +1,5 @@
 import { useRef, useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { useTitle } from "../hooks/useTitle";
 import { Axios } from "../axios/Axios";
@@ -11,7 +11,10 @@ export function useLogin() {
   const usernameRef = useRef<HTMLInputElement>(null);
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const location = useLocation();
   useTitle("Login");
+
+  const redirectPath = location.state?.from || "/products";
 
   useEffect(() => {
     console.log("loginPage mounted...");
@@ -54,7 +57,8 @@ export function useLogin() {
             refreshToken,
           },
         });
-        navigate("/products", { replace: true });
+        //navigate("/products", { replace: true });
+        navigate(redirectPath, { replace: true });
       } catch (errorResp) {
         console.log("rejected", errorResp);
         setErrorMessage("Invalid credentials");

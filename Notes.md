@@ -195,7 +195,14 @@ Add the Git repository URL for this application and related applications here.
     - axios: high level api: cancel, intercept, transfroms
     - fetch is low-level
 
-
+Vitest
+  - Install the libraries
+    - npm install -D vitest @testing-library/react @testing-library/jest-dom @testing-library/user-event jsdom
+    - Configure vitest: vite.config.ts
+    - setupTests.js: common across tests : import '@testing-library/jest-dom'
+    - configure the scripts to run the tests in package.json
+    - 
+    - Write tests: file with extension .test.tsx or .spec.tsx
 
 ## Assignment #1
   - From ListProducts navigate to EditProduct of the click of the edit button
