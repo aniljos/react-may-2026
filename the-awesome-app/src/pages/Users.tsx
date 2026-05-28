@@ -6,27 +6,40 @@ function Users(){
     const [users, setUsers] = useState<User[]>([]);
     const [filteredUsers, setFilteredUsers] = useState<User[]>([]);
     const [searchKey, setSearchKey] = useState("");
+    const [isLoading, setIsLoading] = useState(false);
+    const [errorMessage, setErrorMessage] = useState("");
     const [isPending, setTransition] = useTransition();
 
     useEffect(() => {
 
         async function fetchUsers(){
+            try {
+                setIsLoading(true);
+                setErrorMessage("");
 
-            const url = "https://randomuser.me/api/?results=4000";
-            const response = await fetch(url, {method: "GET"});
-            const data = await response.json();
-            console.log("data", data);
-            const _users = data.results.map((result: any, index: number) => ({
+                const url = "https://randomuser.me/api/?results=4000";
+                const response = await fetch(url, {method: "GET"});
+                const data = await response.json();
+                console.log("data", data);
+                const _users = data.results.map((result: any, index: number) => ({
+                    
+                    id: index,
+                    name: `${result.name.title} ${result.name.first} ${result.name.last}`,
+                    email: result.email,
+                    phone: result.phone,
+                    city: result.location.city
                 
-                id: index,
-                name: `${result.name.title} ${result.name.first} ${result.name.last}`,
-                email: result.email,
-                phone: result.phone,
-                city: result.location.city
-            
-            }));
-            setUsers(_users);
-            setFilteredUsers(_users);
+                }));
+                setUsers(_users);
+                setFilteredUsers(_users);
+            } catch (error) {
+                console.log("users error", error);
+                setUsers([]);
+                setFilteredUsers([]);
+                setErrorMessage("Unable to load users right now.");
+            } finally {
+                setIsLoading(false);
+            }
 
 
         }
@@ -72,8 +85,15 @@ function Users(){
                         />
             </div>
             { searchKey && <div className="alert alert-warning">Search Results for: {searchKey}</div>}
+            {errorMessage && <div className="alert alert-danger">{errorMessage}</div>}
+            {isLoading && (
+                <div className="d-flex align-items-center gap-2 my-3">
+                    <div className="spinner-border text-primary" role="status" aria-hidden="true"></div>
+                    <span>Loading users...</span>
+                </div>
+            )}
 
-            <table className="table" style={{opacity: isPending ? 0.6 : 1}}>
+            <table className="table" style={{opacity: isPending || isLoading ? 0.6 : 1}}>
                 <thead>
                     <tr>
                         <th>Name</th>

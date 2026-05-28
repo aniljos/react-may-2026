@@ -16,8 +16,8 @@ function Assignments() {
                     </p>
 
                     <div className="d-flex flex-wrap gap-2">
-                        <Link className="btn btn-outline-primary" to="">
-                            Wikipedia Search
+                        <Link className="btn btn-outline-primary" to="search">
+                            Search
                         </Link>
                         <Link className="btn btn-outline-primary" to="customers">
                             Customers
