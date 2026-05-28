@@ -2,8 +2,9 @@ import axios, { AxiosError } from "axios";
 import { store } from "../store/store"; 
 
 export const Axios = axios.create({
-    baseURL: "http://localhost:9000",
-    timeout: 100000,
+    //baseURL: "http://localhost:9000",
+    baseURL: import.meta.env.VITE_BASE_URL,
+    timeout: import.meta.env.VITE_API_TIMEOUT,
     
 })
 

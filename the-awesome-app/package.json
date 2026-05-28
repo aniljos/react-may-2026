@@ -10,7 +10,7 @@
     "preview": "vite preview",
     "test": "vitest",
     "test:run": "vitest run",
-    "test:ui": "vitest --ui",
+    "test:ui": "vitest --ui --api.port 5174",
     "coverage": "vitest run --coverage"
   },
   "dependencies": {

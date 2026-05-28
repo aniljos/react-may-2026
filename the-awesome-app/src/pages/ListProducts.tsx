@@ -1,10 +1,7 @@
-import axios from "axios";
 import Product from "../models/Product";
 import "./ListProducts.css";
 import { useNavigate } from "react-router-dom";
 import { useProducts } from "../hooks/useProducts";
-import { useSelector } from "react-redux";
-import type { AppState } from "../store/store";
 import { useCallback, useContext, useMemo, useState } from "react";
 import { AppThemeContext } from "../context/AppThemeContext";
 import ProductView from "../components/ProductView";

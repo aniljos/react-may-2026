@@ -1,4 +1,4 @@
-import { useEffect, useState, useTransition, type ChangeEvent } from "react";
+import { useEffect, useState, useTransition } from "react";
 import type { User } from "../models/User";
 
 function Users(){

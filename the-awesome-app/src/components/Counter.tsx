@@ -17,7 +17,7 @@ function Counter(props: CounterProps){
     }, [count])
 
     function inc(evt: MouseEvent<HTMLButtonElement>){
-        //console.log("inc invoked...", evt);
+        console.log("inc invoked...", evt);
         //props.initCount++; // props is read-only
         //setCount(count + 1);
         //setCount(count + 1);

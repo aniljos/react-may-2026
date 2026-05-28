@@ -36,7 +36,7 @@ function GadgetStore(){
                             <h5 className="card-title">{item.name}</h5>
                             <p className="card-text">{item.description}</p>
                             <p className="card-text text-primary">INR {item.price}</p>
-                            <button className="btn btn-primary" onClick={e => addToCart(item)}>Add To Cart</button>
+                            <button className="btn btn-primary" onClick={() => addToCart(item)}>Add To Cart</button>
                         </div>
                     </div>
     

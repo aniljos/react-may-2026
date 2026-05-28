@@ -9,6 +9,7 @@ export default defineConfig({
     //babel({ presets: [] })
     babel({ presets: [reactCompilerPreset()] })
   ],
+  base: "/awesomeapp",
   test: {
     globals: true,        // use describe/it/expect without importing them
     environment: 'jsdom', // simulate the DOM

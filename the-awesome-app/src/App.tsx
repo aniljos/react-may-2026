@@ -1,4 +1,4 @@
-import {BrowserRouter as Router, Routes, Route, Link} from 'react-router-dom';
+import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import Home from './pages/Home';
 import Login from './pages/Login';
 import ListProducts from './pages/ListProducts';
@@ -19,7 +19,7 @@ function App() {
   
 
   return (
-    <Router>
+    <Router basename='/awesomeapp/'>
       <div className="container-fluid">
             {/* navigation bar */}
             <AppBar/>
