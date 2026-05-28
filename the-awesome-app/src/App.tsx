@@ -7,6 +7,7 @@ import GadgetStore from './pages/GadgetStore';
 import ViewCart from './pages/ViewCart';
 import AppBar from './components/AppBar';
 import Users from './pages/Users';
+import BreadcrumbsBar from './components/BreadcrumbsBar';
 
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
       <div className="container-fluid">
             {/* navigation bar */}
             <AppBar/>
+            <BreadcrumbsBar />
             {/* main content(pages) */}
           <main>
               <Routes>

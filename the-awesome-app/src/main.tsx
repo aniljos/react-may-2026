@@ -5,14 +5,17 @@ import App from "./App.tsx";
 import { Provider } from "react-redux";
 import { store } from "./store/store.ts";
 import { AppThemeProvider } from "./context/AppThemeContext.tsx";
+import { BreadcrumbsProvider } from "./context/BreadcrumpsContext.tsx";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <Provider store={store}>
       {/* <AppThemeContext.Provider value={{mode: "dark"}}> */}
-        <AppThemeProvider>
+      <AppThemeProvider>
+        <BreadcrumbsProvider>
           <App />
-        </AppThemeProvider>
+        </BreadcrumbsProvider>
+      </AppThemeProvider>
       {/* </AppThemeContext.Provider> */}
     </Provider>
    </StrictMode>,
